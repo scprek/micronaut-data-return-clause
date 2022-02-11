@@ -1,0 +1,23 @@
+micronaut:
+  application:
+    name: testLatest
+datasources:
+  locations-db:
+    url: jdbc:postgresql://${POSTGRESQL_HOST:`localhost:38004`}/${POSTGRESQL_DB:fleet}?currentSchema=fleet
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRESQL_USERNAME:user}
+    password: ${POSTGRESQL_PASSWORD:password}
+    dialect: POSTGRES
+    data-source-properties:
+      stringtype: unspecified
+---
+jackson:
+  property-naming-strategy: SNAKE_CASE
+  serialization:
+    WRITE_DATES_AS_TIMESTAMPS: false
+  mapper:
+    ACCEPT_CASE_INSENSITIVE_PROPERTIES: true
+    ACCEPT_CASE_INSENSITIVE_ENUMS: true
+  serialization-inclusion: 'non_absent'
+  bean-introspection-module: false
+
